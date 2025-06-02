@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: frappecz\n"
 "Report-Msgid-Bugs-To: jannat@frappe.io\n"
 "POT-Creation-Date: 2025-05-30 16:04+0000\n"
-"PO-Revision-Date: 2025-06-02 17:47\n"
+"PO-Revision-Date: 2025-06-02 18:57\n"
 "Last-Translator: jannat@frappe.io\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 #: frontend/src/pages/Programs.vue:39
 #, python-format
 msgid "% completed"
-msgstr ""
+msgstr "% dokončeno"
 
 #. Paragraph text in the LMS Workspace
 #: lms/lms/workspace/lms/lms.json
@@ -253,7 +253,7 @@ msgstr ""
 #. Name of a role
 #: frontend/src/pages/Batches.vue:273 lms/lms/doctype/lms_badge/lms_badge.json
 msgid "All"
-msgstr ""
+msgstr "Všechny"
 
 #: frontend/src/pages/Batches.vue:26
 msgid "All Batches"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: lms/lms/doctype/lms_batch/lms_batch.py:70
 msgid "Amount and currency are required for paid batches."
-msgstr ""
+msgstr "Částka a měna jsou vyžadovány pro placené skupiny."
 
 #: lms/lms/doctype/lms_course/lms_course.py:74
 msgid "Amount and currency are required for paid certificates."
@@ -326,7 +326,7 @@ msgstr ""
 
 #: lms/lms/doctype/lms_course/lms_course.py:71
 msgid "Amount and currency are required for paid courses."
-msgstr ""
+msgstr "Částka a měna jsou vyžadovány pro placené kurzy."
 
 #. Label of the amount_with_gst (Currency) field in DocType 'LMS Payment'
 #: lms/lms/doctype/lms_payment/lms_payment.json
