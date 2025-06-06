@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: frappecz\n"
 "Report-Msgid-Bugs-To: jannat@frappe.io\n"
 "POT-Creation-Date: 2025-05-30 16:04+0000\n"
-"PO-Revision-Date: 2025-06-02 18:57\n"
+"PO-Revision-Date: 2025-06-06 07:33\n"
 "Last-Translator: jannat@frappe.io\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -366,7 +366,7 @@ msgstr ""
 
 #: frontend/src/pages/BatchForm.vue:221
 msgid "Appears when the batch URL is shared on socials"
-msgstr ""
+msgstr "Zobrazí se, když je URL skupiny sdílena na sociálních sítích"
 
 #: frontend/src/pages/JobDetail.vue:51
 msgid "Apply"
