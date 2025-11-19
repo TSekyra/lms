@@ -10,7 +10,7 @@
 		</header>
 		<div class="py-5">
 			<div class="container border-b mb-4 pb-5">
-				<div class="text-lg font-semibold mb-4">
+				<div class="text-lg font-semibold mb-4 text-ink-gray-9">
 					{{ __('Job Details') }}
 				</div>
 				<div class="grid grid-cols-2 gap-5">
@@ -25,6 +25,13 @@
 							:label="__('Type')"
 							type="select"
 							:options="jobTypes"
+							:required="true"
+						/>
+						<FormControl
+							v-model="job.work_mode"
+							:label="__('Work Mode')"
+							type="select"
+							:options="workModes"
 							:required="true"
 						/>
 					</div>
@@ -52,7 +59,7 @@
 				</div>
 			</div>
 			<div class="container border-b mb-4 pb-5">
-				<div class="text-lg font-semibold mb-4">
+				<div class="text-lg font-semibold mb-4 text-ink-gray-9">
 					{{ __('Company Details') }}
 				</div>
 				<div class="grid grid-cols-2 gap-5">
@@ -151,7 +158,7 @@ import { computed, onMounted, reactive, inject } from 'vue'
 import { FileText, X } from 'lucide-vue-next'
 import { sessionStore } from '@/stores/session'
 import { useRouter } from 'vue-router'
-import { getFileSize } from '@/utils'
+import { escapeHTML, getFileSize, validateFile } from '@/utils'
 
 const user = inject('$user')
 const router = useRouter()
@@ -225,6 +232,7 @@ const job = reactive({
 	location: '',
 	country: '',
 	type: 'Full Time',
+	work_mode: 'On-site',
 	status: 'Open',
 	company_name: '',
 	company_website: '',
@@ -240,6 +248,7 @@ onMounted(() => {
 })
 
 const saveJob = () => {
+	validateJobFields()
 	if (jobDetail.data) {
 		editJobDetails()
 	} else {
@@ -285,6 +294,14 @@ const editJobDetails = () => {
 	)
 }
 
+const validateJobFields = () => {
+	Object.keys(job).forEach((key) => {
+		if (key != 'description' && typeof job[key] === 'string') {
+			job[key] = escapeHTML(job[key])
+		}
+	})
+}
+
 const saveImage = (file) => {
 	job.image = file
 }
@@ -293,19 +310,20 @@ const removeImage = () => {
 	job.image = null
 }
 
-const validateFile = (file) => {
-	let extension = file.name.split('.').pop().toLowerCase()
-	if (!['jpg', 'jpeg', 'png'].includes(extension)) {
-		return 'Only image file is allowed.'
-	}
-}
-
 const jobTypes = computed(() => {
 	return [
 		{ label: 'Full Time', value: 'Full Time' },
 		{ label: 'Part Time', value: 'Part Time' },
 		{ label: 'Contract', value: 'Contract' },
 		{ label: 'Freelance', value: 'Freelance' },
+	]
+})
+
+const workModes = computed(() => {
+	return [
+		{ label: 'On site', value: 'On-site' },
+		{ label: 'Hybrid', value: 'Hybrid' },
+		{ label: 'Remote', value: 'Remote' },
 	]
 })
 
